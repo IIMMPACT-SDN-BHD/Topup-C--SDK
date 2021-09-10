@@ -1,0 +1,15 @@
+# iimmpact.Model.BalanceStatementResponseMeta
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**CurrentPage** | **int?** |  | [optional] 
+**From** | **int?** |  | [optional] 
+**LastPage** | **int?** |  | [optional] 
+**Path** | **string** |  | [optional] 
+**PerPage** | **int?** |  | [optional] 
+**To** | **int?** |  | [optional] 
+**Total** | **int?** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
