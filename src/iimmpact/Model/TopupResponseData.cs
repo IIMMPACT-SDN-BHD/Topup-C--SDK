@@ -33,6 +33,7 @@ namespace iimmpact.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TopupResponseData" /> class.
         /// </summary>
+        /// <param name="statusCode">statusCode.</param>
         /// <param name="status">status.</param>
         /// <param name="account">account.</param>
         /// <param name="product">product.</param>
@@ -43,8 +44,9 @@ namespace iimmpact.Model
         /// <param name="remarks">remarks.</param>
         /// <param name="refid">refid.</param>
         /// <param name="timestamp">timestamp.</param>
-        public TopupResponseData(string status = default(string), string account = default(string), string product = default(string), int? amount = default(int?), string sn = default(string), decimal? cost = default(decimal?), decimal? balance = default(decimal?), string remarks = default(string), string refid = default(string), string timestamp = default(string))
+        public TopupResponseData(string statusCode = default(string),string status = default(string), string account = default(string), string product = default(string), int? amount = default(int?), string sn = default(string), decimal? cost = default(decimal?), decimal? balance = default(decimal?), string remarks = default(string), string refid = default(string), string timestamp = default(string))
         {
+            this.StatusCode= statusCode;
             this.Status = status;
             this.Account = account;
             this.Product = product;
@@ -57,6 +59,12 @@ namespace iimmpact.Model
             this.Timestamp = timestamp;
         }
         
+        /// <summary>
+        /// Gets or Sets statusCode
+        /// </summary>
+        [DataMember(Name="statusCode", EmitDefaultValue=false)]
+        public string StatusCode { get; set; }
+
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
@@ -125,6 +133,7 @@ namespace iimmpact.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TopupResponseData {\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Product: ").Append(Product).Append("\n");
@@ -169,6 +178,11 @@ namespace iimmpact.Model
                 return false;
 
             return 
+                (
+                    this.StatusCode == input.StatusCode ||
+                    (this.StatusCode != null &&
+                    this.StatusCode.Equals(input.StatusCode))
+                ) &&
                 (
                     this.Status == input.Status ||
                     (this.Status != null &&
@@ -230,6 +244,8 @@ namespace iimmpact.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.StatusCode != null)
+                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Account != null)
