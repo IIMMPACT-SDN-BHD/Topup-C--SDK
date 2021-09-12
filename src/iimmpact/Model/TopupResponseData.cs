@@ -87,7 +87,7 @@ namespace iimmpact.Model
         /// Gets or Sets Amount
         /// </summary>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public int? Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Sn
